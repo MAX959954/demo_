@@ -1,0 +1,51 @@
+
+#localhost:8080/api/v1/registration to sent requests
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/registration
+    username: postgres
+    password: 12345
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+  mail :
+    host: localhost
+    port : 1025
+    username : hello
+    password : hello
+
+    properties :
+      mail:
+        smtp :
+          ssl :
+            trust : "*"
+          auth: true
+          starttls:
+            enable : true
+          connection timeout: 5000
+          timeout: 3000
+          write timeout: 5000
+  #mail:
+    #host: smtp.sendgrid.net
+    #port: 587
+    #username: apikey
+    #password: ${SENDGRID_API_KEY}
+    #properties:
+      #mail:
+        #smtp:
+          #auth: true
+          #starttls:
+            #enable: true
