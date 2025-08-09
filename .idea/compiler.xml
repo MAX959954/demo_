@@ -16,4 +16,10 @@
       <module name="demo.demo.test" target="24" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo.demo.main" options="--add-exports jdk.internal.le/jdk.internal.org.jline.reader=ALL-UNNAMED" />
+      <module name="demo.demo.main~1" options="--add-exports jdk.internal.le/jdk.internal.org.jline.reader=ALL-UNNAMED" />
+    </option>
+  </component>
 </project>

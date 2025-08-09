@@ -15,11 +15,16 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
-@AllArgsConstructor
 public class AppUserService implements UserDetailsService {
     private final AppUserRepository appUserRepository;
     private final PasswordEncoder passwordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
+
+    public AppUserService(AppUserRepository appUserRepository, PasswordEncoder passwordEncoder, ConfirmationTokenService confirmationTokenService) {
+        this.appUserRepository = appUserRepository;
+        this.passwordEncoder = passwordEncoder; // Use the injected bean
+        this.confirmationTokenService = confirmationTokenService;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
